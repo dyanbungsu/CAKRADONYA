@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0B1F3A">
+  <title>SIM Paskibra Pasukan Cakra Donya - SMAN 1 Seunuddon</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<!-- ======================= HALAMAN LOGIN ======================= -->
+<section id="login-view" class="login-view" hidden>
+  <div class="login-card">
+    <div class="login-brand">
+      <img id="login-logo-paskibra" class="login-logo" alt="" hidden>
+      <img id="login-logo-sekolah" class="login-logo" alt="" hidden>
+    </div>
+    <h1 id="login-org" class="login-title">PASUKAN CAKRA DONYA</h1>
+    <p id="login-school" class="login-sub">SMA NEGERI 1 SEUNUDDON</p>
+    <p class="login-caption">Sistem Informasi Manajemen Paskibra</p>
+
+    <div id="login-config-warning" class="alert alert-warn" hidden>
+      URL backend belum diatur. Isi <code>API_URL</code> pada <code>js/config.js</code>.
+    </div>
+
+    <form id="login-form" autocomplete="on" novalidate>
+      <label class="field">
+        <span>Username</span>
+        <input id="login-username" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+      </label>
+      <label class="field">
+        <span>Password</span>
+        <div class="input-group">
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+          <button type="button" id="login-toggle-pw" class="input-btn" aria-label="Tampilkan atau sembunyikan password">
+            <i data-lucide="eye"></i>
+          </button>
+        </div>
+      </label>
+      <div id="login-error" class="alert alert-error" role="alert" hidden></div>
+      <button id="login-submit" class="btn btn-gold btn-block" type="submit">Masuk</button>
+    </form>
+    <p class="login-foot">Hubungi Administrator bila lupa password.</p>
+  </div>
+</section>
+
+<!-- ======================= KERANGKA APLIKASI ======================= -->
+<div id="app-view" class="app" hidden>
+  <header class="topbar">
+    <button id="btn-menu" class="icon-btn only-mobile" aria-label="Buka menu"><i data-lucide="menu"></i></button>
+    <div class="brand">
+      <img id="hdr-logo-sekolah" class="brand-logo" alt="" hidden>
+      <img id="hdr-logo-paskibra" class="brand-logo" alt="" hidden>
+      <div class="brand-text">
+        <strong id="hdr-org">PASUKAN CAKRA DONYA</strong>
+        <span id="hdr-school">SMA NEGERI 1 SEUNUDDON</span>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <div class="clock hide-mobile" aria-live="off">
+        <strong id="clock-time">--.--.--</strong>
+        <span id="clock-date"></span>
+      </div>
+      <span id="chip-cloud" class="chip chip-wait" title="Status koneksi ke server"><i data-lucide="cloud"></i><span>Cloud</span></span>
+      <span id="chip-drive" class="chip chip-off hide-mobile" title="Status Google Drive"><i data-lucide="hard-drive"></i><span>Drive</span></span>
+      <button id="btn-scan" class="btn btn-gold btn-sm" title="Scanner QR absensi"><i data-lucide="qr-code"></i><span class="hide-mobile">Scanner QR</span></button>
+      <div class="profile">
+        <button id="btn-profile" class="profile-btn" aria-haspopup="true" aria-expanded="false">
+          <span id="profile-avatar" class="avatar">?</span>
+          <span class="profile-text hide-mobile"><strong id="profile-name">-</strong><small id="profile-role">-</small></span>
+          <i data-lucide="chevron-down" class="hide-mobile"></i>
+        </button>
+        <div id="profile-menu" class="dropdown" hidden>
+          <a href="#/account"><i data-lucide="user"></i> Akun Saya</a>
+          <button id="btn-logout" type="button"><i data-lucide="log-out"></i> Keluar</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside id="sidebar" class="sidebar" aria-label="Navigasi utama">
+      <nav id="nav" class="nav"></nav>
+      <div class="sidebar-foot">v<span id="app-version">-</span></div>
+    </aside>
+    <div id="sidebar-scrim" class="scrim" hidden></div>
+    <main id="page" class="page" tabindex="-1"></main>
+  </div>
+</div>
+
+<div id="toast-root" class="toast-root" aria-live="polite"></div>
+<div id="modal-root"></div>
+<div id="loading" class="loading" hidden><div class="spinner"></div></div>
+
+<script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/router.js"></script>
+<script src="js/modules/placeholder.js"></script>
+<script src="js/modules/dashboard.js"></script>
+<script src="js/modules/users.js"></script>
+<script src="js/modules/settings.js"></script>
+<script src="js/modules/account.js"></script>
+<script src="js/modules/backend.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
